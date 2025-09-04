@@ -596,37 +596,29 @@ class MainWindow(QMainWindow):
     def extract_audio(self):
         url = self.url_input.text().strip()
         if url:
-            # Устанавливаем формат "audio_only" для извлечения звука
-            options = {
-                'quality': self.quality_combo.currentText().split(' ')[0],
-                'format': 'audio_only',
-                'watermark': self.watermark_check.isChecked(),
-                'vpn': self.vpn_check.isChecked(),
-                'output_dir': self.folder_input.text()
-            }
-            self.downloader.set_options(options)
-            
             self.downloader.add_to_queue(url)
             self.log_area.append(f"🎵 Добавлено в очередь для извлечения звука: {url}")
             self.url_input.clear()
             self.update_status(f"📥 В очереди: {len(self.downloader.queue)} аудио")
             
-            # Автоматически начинаем загрузку для извлечения звука
-            self.start_download()
+            # Вызываем start_download, явно указывая, что нужен только звук
+            self.start_download(format_key='audio_only')
         else:
             QMessageBox.warning(self, "Ошибка", 
                 "Пожалуйста, введите URL видео" if self.current_language == 'ru' else "Please enter video URL")
     
-    def start_download(self):
+    def start_download(self, format_key=None):
         if not self.downloader.queue:
             QMessageBox.warning(self, "Ошибка", 
                 "Очередь загрузки пуста" if self.current_language == 'ru' else "Download queue is empty")
             return
             
-        # Настраиваем параметры загрузки
+        # Определяем формат: если передан, используем его, иначе берем из интерфейса
+        download_format = format_key if format_key else self._get_format_key()
+
         options = {
             'quality': self.quality_combo.currentText().split(' ')[0],
-            'format': self._get_format_key(),
+            'format': download_format,
             'watermark': self.watermark_check.isChecked(),
             'vpn': self.vpn_check.isChecked(),
             'output_dir': self.folder_input.text()
@@ -642,7 +634,6 @@ class MainWindow(QMainWindow):
         self.log_area.append("\n🚀 Начинаю загрузку..." if self.current_language == 'ru' else "\n🚀 Starting download...")
         QApplication.processEvents()
         
-        # Запускаем загрузку в отдельном потоке
         self.download_thread = DownloadThread(self.downloader)
         self.download_thread.progress_signal.connect(self.update_progress)
         self.download_thread.result_signal.connect(self.handle_download_result)
