@@ -1,0 +1,13 @@
+=== VIDEO DOWNLOAD REPORT ===
+Generated: 2025-09-01 20:20:35
+==============================
+
+Total: 1
+Successful: 1
+Failed: 0
+
+DETAILS:
+--------------------
+URL: https://vm.tiktok.com/ZMAYCYrF2/
+Result: ✅ Успешно: D:/video-downloader-tool/downloads\video_7192.mp4
+--------------------

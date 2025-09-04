@@ -1,0 +1,13 @@
+=== VIDEO DOWNLOAD REPORT ===
+Generated: 2025-09-01 21:10:28
+==============================
+
+Total: 1
+Successful: 0
+Failed: 1
+
+DETAILS:
+--------------------
+URL: https://vm.tiktok.com/ZMAYCYrF2/
+Result: {'status': 'success', 'path': 'D:/video-downloader-tool/downloads\\video_9256.mp4', 'message': 'Download completed successfully'}
+--------------------

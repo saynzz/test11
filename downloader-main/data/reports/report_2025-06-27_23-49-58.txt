@@ -1,0 +1,14 @@
+Отчет от 2025-06-27_23-49-58
+==================================================
+https://vm.tiktok.com/ZMSu5JbKs/
+❌ Ошибка: [0;31mERROR:[0m [TikTok] 7518325970445569302: Requested format is not available. Use --list-formats for a list of available formats
+
+https://vm.tiktok.com/ZMSxghgxw/
+❌ Ошибка: [0;31mERROR:[0m [TikTok] 7519473183620123936: Requested format is not available. Use --list-formats for a list of available formats
+
+https://vm.tiktok.com/ZMSUWB1V2/
+❌ Ошибка: [0;31mERROR:[0m [TikTok] 7508789986095910200: Requested format is not available. Use --list-formats for a list of available formats
+
+https://vm.tiktok.com/ZMSUWegkj/
+❌ Ошибка: [0;31mERROR:[0m [TikTok] 7512541140076203294: Requested format is not available. Use --list-formats for a list of available formats
+
